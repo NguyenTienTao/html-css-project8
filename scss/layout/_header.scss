@@ -52,6 +52,10 @@
             display: block;
             padding: 10px 40px;
         }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px 10px;
+        }
     }
 
     &__list {
@@ -59,8 +63,17 @@
 
         @include abstracts.breakpoint(lg) {
             flex-direction: column;
-            height: calc(100% - 26px);
+            height: calc(100% - 48px);
             overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        @include abstracts.breakpoint(md) {
+            height: calc(100% - 150px);
+        }
+
+        @include abstracts.breakpoint(sm) {
+            height: calc(100% - 126px);
         }
     }
 
@@ -68,6 +81,16 @@
         &:hover .dropdown {
             opacity: 1;
             visibility: visible;
+        }
+
+        @include abstracts.breakpoint(lg) {
+            .dropdown {
+                display: none;
+            }
+
+            &--active .dropdown {
+                display: block;
+            }
         }
     }
 
@@ -87,10 +110,23 @@
             padding: 0 40px;
             font-size: 1.6rem;
         }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px;
+        }
     }
 
     &__arrow {
         margin-top: 3px;
+        transition: rotate 0.25s;
+
+        @include abstracts.breakpoint(lg) {
+            rotate: -90deg;
+        }
+    }
+
+    &__item--active &__arrow {
+        rotate: 0deg;
     }
 
     @include abstracts.breakpoint(lg) {
@@ -102,15 +138,21 @@
         padding: 20px 0;
         translate: -100%;
         transition: translate 0.5s;
+        border-radius: 0 20px 20px 0;
 
         &.show {
             translate: 0;
+            box-shadow: 0 40px 90px 20px var(--sidebar-shadow-color);
         }
 
         &.show + .navbar__overlay {
             visibility: visible;
             opacity: 1;
         }
+    }
+
+    @include abstracts.breakpoint(sm) {
+        inset: 0 20% 0 0;
     }
 
     &__overlay {
@@ -199,5 +241,25 @@
     }
 }
 
-.hide {
+.nav-btn {
+    height: 50px;
+    padding: 0 40px;
+    align-items: center;
+
+    @include abstracts.breakpoint(sm) {
+        height: 44px;
+        padding: 0 20px;
+    }
+
+    &__title,
+    &__qnt {
+        margin-left: 16px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+    }
+
+    &__qnt {
+        margin-left: auto;
+    }
 }

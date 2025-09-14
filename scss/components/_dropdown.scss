@@ -42,6 +42,10 @@
                 content: none;
             }
         }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px;
+        }
     }
 }
 
@@ -60,6 +64,7 @@
             width: 100%;
             height: auto;
             border-right: none;
+            overflow-y: initial;
         }
     }
 
@@ -72,7 +77,6 @@
 
         @include abstracts.breakpoint(lg) {
             position: initial;
-            display: flex;
             flex-direction: column;
             gap: 30px;
             padding: 7px 0;
@@ -83,6 +87,13 @@
         display: flex;
         height: calc(min(582px, calc(100vh - 150px)) - 60px);
         overflow-y: auto;
+
+        @include abstracts.breakpoint(lg) {
+            padding-top: 7px;
+            flex-direction: column;
+            height: auto;
+            gap: 30px;
+        }
     }
 
     &__extra--column {
@@ -163,6 +174,11 @@
         line-height: 142.857%;
         padding: 7px 0;
         color: var(--menu-column-text-color);
+
+        @include abstracts.breakpoint(lg) {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     &__item:last-child &__link {
