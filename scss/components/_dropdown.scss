@@ -9,7 +9,7 @@
     transition: opacity 0.25s, visibility 0.25s;
     width: min(1240px, 100%);
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
         position: initial;
         visibility: visible;
         opacity: 1;
@@ -32,7 +32,7 @@
             filter: var(--dropdown-arrow-color);
         }
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             padding: 0 40px;
             border-radius: 0;
             background: transparent;
@@ -43,7 +43,7 @@
             }
         }
 
-        @include abstracts.breakpoint(sm) {
+        @include abstracts.screen(sm) {
             padding: 0 20px;
         }
     }
@@ -60,7 +60,7 @@
         border-right: 1px solid var(--top-menu-main-border-color);
         overflow-y: auto;
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             width: 100%;
             height: auto;
             border-right: none;
@@ -75,7 +75,7 @@
         overflow-y: auto;
         display: none;
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             position: initial;
             flex-direction: column;
             gap: 30px;
@@ -88,7 +88,7 @@
         height: calc(min(582px, calc(100vh - 150px)) - 60px);
         overflow-y: auto;
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             padding-top: 7px;
             flex-direction: column;
             height: auto;
@@ -142,7 +142,7 @@
         line-height: 150%;
         color: var(--menu-column-text-color);
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             margin-bottom: 19px;
         }
     }
@@ -150,7 +150,7 @@
     &__list {
         margin-top: 19px;
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             margin-top: 0;
         }
     }
@@ -175,7 +175,7 @@
         padding: 7px 0;
         color: var(--menu-column-text-color);
 
-        @include abstracts.breakpoint(lg) {
+        @include abstracts.screen(lg) {
             display: flex;
             justify-content: space-between;
         }
