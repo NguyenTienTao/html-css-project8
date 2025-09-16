@@ -28,4 +28,27 @@ html {
 
     /* Sidebar */
     --sidebar-shadow-color: rgba(200, 200, 200, 0.4);
+
+    /* Cate-item */
+    --cate-item-bg: #eee;
+    --cate-item-thumb-bg: #fff;
+    --cate-item-title-color: #000;
+
+    @include abstracts.screen(md) {
+        --cate-item-bg: #fff;
+    }
+
+    /* Product-card */
+    --product-card-bg: #fff;
+    --product-card-shadow: rgba(237, 237, 246, 0.2);
+
+    /* Button */
+    --filter-btn-bg: #fff;
+    --filter-btn-text-color: #6c6c72;
+
+    @include abstracts.screen(md) {
+        --filter-btn-text-color: #1a162e;
+    }
+
+    --like-btn-bg: #fff;
 }
