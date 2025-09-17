@@ -42,4 +42,15 @@ html.dark {
     --filter-btn-text-color: #fff;
 
     --like-btn-bg: #292e39;
+
+    // Filter
+    --filter-bg-color: #292e39;
+    --filter-shadow: rgba(0, 0, 0, 0.4);
+    --filter-slider-circle: #292e39;
+    --filter-form-tag-bg: #171c28;
+    --filter-form-arrow: brightness(0) saturate(100%) invert(15%) sepia(19%) saturate(587%) hue-rotate(183deg)
+        brightness(96%) contrast(92%);
+
+    // Btn Outline
+    --btn-outline-border: #b9babe;
 }
