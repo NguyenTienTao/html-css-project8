@@ -60,4 +60,13 @@ html {
 
     // Btn Outline
     --btn-outline-border: #d2d1d6;
+
+    // Footer
+    --footer-bg-color: var(--header-bg-color);
+    --footer-social-bg: var(--like-btn-bg);
+    --footer-link-color: #6c6c72;
+
+    @include abstracts.screen(lg) {
+        --footer-social-bg: #f0eeee;
+    }
 }

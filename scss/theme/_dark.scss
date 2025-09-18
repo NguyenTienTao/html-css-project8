@@ -53,4 +53,9 @@ html.dark {
 
     // Btn Outline
     --btn-outline-border: #b9babe;
+
+    // Footer
+    --footer-bg-color: var(--header-bg-color);
+    --footer-social-bg: var(--like-btn-bg);
+    --footer-link-color: #b9babe;
 }
