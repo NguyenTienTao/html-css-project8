@@ -47,6 +47,9 @@
 
 // Buttons
 .btn {
+    display: flex;
+    align-items: center;
+
     height: 46px;
     border-radius: 6px;
     padding: 0 20px;
@@ -54,10 +57,6 @@
     font-size: 1.8rem;
     font-weight: 500;
     user-select: none;
-
-    + & {
-        margin-left: 20px;
-    }
 
     &--text {
         color: #9e9da8;
