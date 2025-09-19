@@ -58,4 +58,20 @@ html.dark {
     --footer-bg-color: var(--header-bg-color);
     --footer-social-bg: var(--like-btn-bg);
     --footer-link-color: #b9babe;
+
+    // Sign
+    --sign-intro-bg: #171c28;
+    --sign-content-bg: #292e39;
+    --sign-intro-text-color: #b9babe;
+    --sign-content-heading: var(--sign-intro-text-color);
+    --sign-card-label-color: var(--sign-intro-text-color);
+    --sign-btn-gmail: var(--sign-intro-text-color);
+    --sign-btn-gmail-icon: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(1431%) hue-rotate(187deg)
+        brightness(84%) contrast(87%);
+
+    // Input
+    --input-no-label-border: #b9babe;
+    --input-no-label-placeholder: var(--input-no-label-border);
+    --input-no-label-icon: brightness(0) saturate(100%) invert(82%) sepia(1%) saturate(1125%) hue-rotate(179deg)
+        brightness(91%) contrast(94%);
 }

@@ -1,0 +1,30 @@
+.input {
+    display: block;
+    height: 50px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 1.8rem;
+
+    &__no-label {
+        padding: 12px;
+        border-color: var(--input-no-label-border);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &--text {
+            flex: 1;
+
+            &::placeholder {
+                color: var(--input-no-label-placeholder);
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+        }
+
+        &--icon {
+            filter: var(--input-no-label-icon);
+        }
+    }
+}

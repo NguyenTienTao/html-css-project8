@@ -49,11 +49,13 @@
 .btn {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     height: 46px;
     border-radius: 6px;
     padding: 0 20px;
     background: #f8f8fb;
+    color: #1a162e;
     font-size: 1.8rem;
     font-weight: 500;
     user-select: none;

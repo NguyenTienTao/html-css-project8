@@ -69,4 +69,17 @@ html {
     @include abstracts.screen(lg) {
         --footer-social-bg: #f0eeee;
     }
+
+    // Sign
+    --sign-intro-bg: #fff;
+    --sign-content-bg: #fff;
+    --sign-intro-text-color: #1a162e;
+    --sign-content-heading: var(--sign-intro-text-color);
+    --sign-card-label-color: #9e9da8;
+
+    // Input
+    --input-no-label-border: #d2d1d6;
+    --input-no-label-placeholder: var(--input-no-label-border);
+    --input-no-label-icon: brightness(0) saturate(100%) invert(70%) sepia(10%) saturate(233%) hue-rotate(206deg)
+        brightness(89%) contrast(90%);
 }

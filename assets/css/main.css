@@ -1333,6 +1333,15 @@ html {
   --footer-bg-color: var(--header-bg-color);
   --footer-social-bg: var(--like-btn-bg);
   --footer-link-color: #6c6c72;
+  --sign-intro-bg: #fff;
+  --sign-content-bg: #fff;
+  --sign-intro-text-color: #1a162e;
+  --sign-content-heading: var(--sign-intro-text-color);
+  --sign-card-label-color: #9e9da8;
+  --input-no-label-border: #d2d1d6;
+  --input-no-label-placeholder: var(--input-no-label-border);
+  --input-no-label-icon: brightness(0) saturate(100%) invert(70%) sepia(10%) saturate(233%) hue-rotate(206deg)
+      brightness(89%) contrast(90%);
 }
 @media (max-width: 991.98px) {
   html {
@@ -1397,6 +1406,18 @@ html.dark {
   --footer-bg-color: var(--header-bg-color);
   --footer-social-bg: var(--like-btn-bg);
   --footer-link-color: #b9babe;
+  --sign-intro-bg: #171c28;
+  --sign-content-bg: #292e39;
+  --sign-intro-text-color: #b9babe;
+  --sign-content-heading: var(--sign-intro-text-color);
+  --sign-card-label-color: var(--sign-intro-text-color);
+  --sign-btn-gmail: var(--sign-intro-text-color);
+  --sign-btn-gmail-icon: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(1431%) hue-rotate(187deg)
+      brightness(84%) contrast(87%);
+  --input-no-label-border: #b9babe;
+  --input-no-label-placeholder: var(--input-no-label-border);
+  --input-no-label-icon: brightness(0) saturate(100%) invert(82%) sepia(1%) saturate(1125%) hue-rotate(179deg)
+      brightness(91%) contrast(94%);
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1853,10 +1874,12 @@ html.dark {
 .btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 46px;
   border-radius: 6px;
   padding: 0 20px;
   background: #f8f8fb;
+  color: #1a162e;
   font-size: 1.8rem;
   font-weight: 500;
   user-select: none;
@@ -2127,6 +2150,33 @@ html.dark {
   }
 }
 
+.input {
+  display: block;
+  height: 50px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 1.8rem;
+}
+.input__no-label {
+  padding: 12px;
+  border-color: var(--input-no-label-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.input__no-label--text {
+  flex: 1;
+}
+.input__no-label--text::placeholder {
+  color: var(--input-no-label-placeholder);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.input__no-label--icon {
+  filter: var(--input-no-label-icon);
+}
+
 .top-cta__btn, .top-cta__group, .top-bar {
   display: flex;
   align-items: center;
@@ -2358,9 +2408,6 @@ html.dark {
 .top-cta__avatar {
   width: 100%;
   border-radius: 8px;
-}
-.top-cta__signup {
-  margin-left: 0 !important;
 }
 
 .nav-btn {
@@ -2616,6 +2663,159 @@ html.dark {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.sign__content--inner, .sign__content, .sign__intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign__row {
+  display: flex;
+}
+.sign__intro {
+  width: 50vw;
+  height: 100vh;
+  background: var(--sign-intro-bg);
+}
+.sign__intro-desc {
+  margin-top: 49px;
+  width: 100%;
+  text-align: center;
+  color: var(--sign-intro-text-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
+}
+.sign__img-wrap {
+  width: 422px;
+  height: 261px;
+}
+.sign__img {
+  width: 100%;
+  height: 100%;
+}
+.sign__content {
+  width: 50vw;
+  height: 100vh;
+  align-items: flex-start;
+  background: var(--sign-content-bg);
+  overflow-y: auto;
+}
+.sign__content--inner {
+  padding: 16px;
+  width: 460px;
+  flex-direction: column;
+}
+.sign__heading {
+  margin-top: 40px;
+  color: var(--sign-content-heading);
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.sign__desc {
+  margin-top: 10px;
+  width: 100%;
+  color: #9e9da8;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.sign__form {
+  margin-top: 52px;
+  width: 100%;
+}
+.sign__form-group {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.sign__utility {
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sign__card-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--sign-card-label-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+  cursor: pointer;
+  user-select: none;
+}
+.sign__card-label::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--sign-card-label-color);
+  border-radius: 5px;
+}
+.sign__card-label::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  height: 6px;
+  width: 12px;
+  border: 1px solid var(--sign-card-label-color);
+  border-color: transparent transparent currentColor currentColor;
+  rotate: -45deg;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+input[type=checkbox]:checked ~ .sign__card-label::after {
+  opacity: 1;
+  visibility: visible;
+}
+.sign__recovery {
+  color: #0071dc;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.sign__btn {
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.sign__btn--gmail {
+  color: var(--sign-btn-gmail);
+  filter: var(--sign-btn-gmail-icon);
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sign__other {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sign__other-desc {
+  color: var(--sign-card-label-color);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 144.444%;
+}
+.sign__other-link {
+  color: #0071dc;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
 }
 
 /*# sourceMappingURL=main.css.map */
