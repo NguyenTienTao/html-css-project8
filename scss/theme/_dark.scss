@@ -61,13 +61,13 @@ html.dark {
 
     // Sign
     --sign-intro-bg: #171c28;
-    --sign-content-bg: #292e39;
     --sign-intro-text-color: #b9babe;
     --sign-content-heading: var(--sign-intro-text-color);
     --sign-card-label-color: var(--sign-intro-text-color);
     --sign-btn-gmail: var(--sign-intro-text-color);
     --sign-btn-gmail-icon: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(1431%) hue-rotate(187deg)
         brightness(84%) contrast(87%);
+    --sign-up-dot: #292e39;
 
     // Input
     --input-no-label-border: #b9babe;

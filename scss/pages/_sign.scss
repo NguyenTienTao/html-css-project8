@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 %flex-center {
     display: flex;
     align-items: center;
@@ -7,6 +9,14 @@
 .sign {
     &__row {
         display: flex;
+
+        @supports (-webkit-touch-callout: none) {
+            min-height: -webkit-fill-available;
+        }
+
+        @include abstracts.screen(lg) {
+            position: relative;
+        }
     }
 
     &__intro {
@@ -14,6 +24,24 @@
         height: 100vh;
         @extend %flex-center;
         background: var(--sign-intro-bg);
+
+        @include abstracts.screen(lg) {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 50px 0 30px;
+            transition: translate 0.5s;
+
+            &.hide {
+                translate: -100%;
+            }
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 80px 0 50px;
+        }
 
         &-desc {
             margin-top: 49px;
@@ -29,27 +57,48 @@
 
     &__img-wrap {
         width: 422px;
-        height: 261px;
+
+        @include abstracts.screen(lg) {
+            text-align: center;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 315px;
+        }
     }
 
     &__img {
         width: 100%;
-        height: 100%;
     }
 
     &__content {
         width: 50vw;
         height: 100vh;
         @extend %flex-center;
-        align-items: flex-start;
-        background: var(--sign-content-bg);
         overflow-y: auto;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
 
         &--inner {
             padding: 16px;
             width: 460px;
+            // min-height: 100%;
             @extend %flex-center;
             flex-direction: column;
+
+            @include abstracts.screen(xl) {
+                width: 420px;
+            }
+
+            @include abstracts.screen(lg) {
+                width: 500px;
+            }
+
+            @include abstracts.screen(md) {
+                padding: 0 30px;
+            }
         }
     }
 
@@ -59,6 +108,12 @@
         font-size: 3rem;
         font-weight: 500;
         line-height: 146.667%;
+
+        @include abstracts.screen(md) {
+            margin-top: 50px;
+            font-size: 2.2rem;
+            line-height: 145.455%;
+        }
     }
 
     &__desc {
@@ -69,17 +124,36 @@
         font-size: 1.5rem;
         font-weight: 500;
         line-height: 146.667%;
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            line-height: 142.857%;
+        }
     }
 
     &__form {
         margin-top: 52px;
         width: 100%;
 
+        @include abstracts.screen(md) {
+            margin-top: 30px;
+        }
+
         &-group {
             margin-top: 24px;
             display: flex;
             flex-direction: column;
             gap: 18px;
+
+            @include abstracts.screen(md) {
+                margin-top: 20px;
+                gap: 20px;
+            }
+        }
+
+        &:has(:invalid) ~ .sign__btn:not(.sign__btn--gmail) {
+            opacity: 0.5;
+            pointer-events: none;
         }
     }
 
@@ -89,6 +163,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @include abstracts.screen(md) {
+            margin-top: 20px;
+        }
     }
 
     &__card-label {
@@ -104,6 +182,11 @@
         cursor: pointer;
         user-select: none;
 
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 142.857%;
+        }
+
         &::before {
             content: "";
             display: block;
@@ -111,6 +194,7 @@
             height: 20px;
             border: 2px solid var(--sign-card-label-color);
             border-radius: 5px;
+            transition: background-color 0.2s;
         }
 
         &::after {
@@ -120,7 +204,7 @@
             left: 4px;
             height: 6px;
             width: 12px;
-            border: 1px solid var(--sign-card-label-color);
+            border: 2px solid var(--sign-card-label-color);
             border-color: transparent transparent currentColor currentColor;
             rotate: -45deg;
             opacity: 0;
@@ -132,6 +216,12 @@
     input[type="checkbox"]:checked ~ &__card-label::after {
         opacity: 1;
         visibility: visible;
+        border-color: transparent transparent #fff #fff;
+    }
+
+    input[type="checkbox"]:checked ~ &__card-label::before {
+        border: none;
+        background: #ffb700;
     }
 
     &__recovery {
@@ -139,6 +229,11 @@
         font-size: 1.5rem;
         font-weight: 500;
         line-height: 146.667%;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 142.857%;
+        }
     }
 
     &__btn {
@@ -147,6 +242,10 @@
         border-radius: 10px;
         cursor: pointer;
 
+        @include abstracts.screen(md) {
+            margin-top: 50px;
+        }
+
         &--gmail {
             color: var(--sign-btn-gmail);
             filter: var(--sign-btn-gmail-icon);
@@ -154,6 +253,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+
+            @include abstracts.screen(md) {
+                margin-top: 30px;
+            }
         }
     }
 
@@ -168,6 +271,11 @@
             font-size: 1.8rem;
             font-weight: 400;
             line-height: 144.444%;
+
+            @include abstracts.screen(md) {
+                font-size: 1.6rem;
+                line-height: 150%;
+            }
         }
 
         &-link {
@@ -175,6 +283,55 @@
             font-size: 1.8rem;
             font-weight: 500;
             line-height: 144.444%;
+
+            @include abstracts.screen(md) {
+                font-size: 1.6rem;
+                line-height: 150%;
+            }
+        }
+    }
+}
+
+.sign-up {
+    &__intro-logo {
+        display: none;
+
+        @include abstracts.screen(lg) {
+            display: flex;
+        }
+    }
+
+    &__nav {
+        display: none;
+        align-items: center;
+        gap: 13px;
+
+        @include abstracts.screen(lg) {
+            display: flex;
+        }
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--sign-up-dot);
+        cursor: pointer;
+
+        &.active {
+            background: #b9babe;
+        }
+    }
+
+    &__arrow {
+        cursor: pointer;
+    }
+}
+
+.sign-in {
+    @include abstracts.screen(lg) {
+        &__intro {
+            display: none;
         }
     }
 }

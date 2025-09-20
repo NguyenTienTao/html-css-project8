@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,12 +24,23 @@
     <body>
         <div class="sign">
             <div class="sign__row">
-                <div class="sign__intro">
+                <div id="sign-up-intro" class="sign__intro show">
+                    <a href="./" class="logo sign-up__intro-logo">
+                        <img src="./assets/icons/logo.svg" alt="Grocerymart" class="logo__img" />
+                        <h1 class="logo__title">grocerymart</h1>
+                    </a>
                     <div class="sign__img-wrap">
                         <img src="./assets/img/intro-img.png" alt="" class="sign__img" />
                         <p class="sign__intro-desc">
                             The best of luxury brand values, high quality products, and innovative services
                         </p>
+                    </div>
+                    <div class="sign-up__nav">
+                        <div class="sign-up__dot active"></div>
+                        <button class="sign-up__dot js-toggle" toggle-target="#sign-up-intro"></button>
+                        <button class="sign-up__arrow js-toggle" toggle-target="#sign-up-intro">
+                            <img src="./assets/icons/arrow-right.svg" alt="" />
+                        </button>
                     </div>
                 </div>
                 <div class="sign__content">
@@ -40,31 +51,64 @@
                         </a>
                         <h1 class="sign__heading">Sign Up</h1>
                         <p class="sign__desc">Let’s create your account and Shop like a pro and save money.</p>
-                        <form action="#!" class="sign__form">
+                        <form action="./index-logined.html" class="sign__form">
                             <div class="input input__no-label">
-                                <input type="email" name="" id="" placeholder="Email" class="input__no-label--text" />
+                                <input
+                                    type="email"
+                                    name=""
+                                    id=""
+                                    placeholder="Email"
+                                    class="input__no-label--text"
+                                    required
+                                />
                                 <img src="./assets/icons/message.svg" alt="" class="input__no-label--icon" />
+                                <img
+                                    src="./assets/icons/error.svg"
+                                    alt=""
+                                    class="input__no-label--icon input__no-label--icon-error"
+                                />
                             </div>
+                            <p class="form__error">Email chưa đúng định dạng</p>
                             <div class="sign__form-group">
-                                <div class="input input__no-label">
-                                    <input
-                                        type="password"
-                                        name=""
-                                        id=""
-                                        placeholder="Password"
-                                        class="input__no-label--text"
-                                    />
-                                    <img src="./assets/icons/lock.svg" alt="" class="input__no-label--icon" />
+                                <div class="">
+                                    <div class="input input__no-label">
+                                        <input
+                                            type="password"
+                                            name=""
+                                            id=""
+                                            placeholder="Password"
+                                            class="input__no-label--text"
+                                            required
+                                            minlength="6"
+                                        />
+                                        <img src="./assets/icons/lock.svg" alt="" class="input__no-label--icon" />
+                                        <img
+                                            src="./assets/icons/error.svg"
+                                            alt=""
+                                            class="input__no-label--icon input__no-label--icon-error"
+                                        />
+                                    </div>
+                                    <p class="form__error">Mật khẩu ít nhất 6 kí tự</p>
                                 </div>
-                                <div class="input input__no-label">
-                                    <input
-                                        type="password"
-                                        name=""
-                                        id=""
-                                        placeholder="Confirm Password"
-                                        class="input__no-label--text"
-                                    />
-                                    <img src="./assets/icons/lock.svg" alt="" class="input__no-label--icon" />
+                                <div class="">
+                                    <div class="input input__no-label">
+                                        <input
+                                            type="password"
+                                            name=""
+                                            id=""
+                                            placeholder="Confirm Password"
+                                            class="input__no-label--text"
+                                            required
+                                            minlength="6"
+                                        />
+                                        <img src="./assets/icons/lock.svg" alt="" class="input__no-label--icon" />
+                                        <img
+                                            src="./assets/icons/error.svg"
+                                            alt=""
+                                            class="input__no-label--icon input__no-label--icon-error"
+                                        />
+                                    </div>
+                                    <p class="form__error">Mật khẩu nhập lại chưa khớp</p>
                                 </div>
                             </div>
                         </form>
@@ -73,9 +117,8 @@
                                 <input type="checkbox" name="" id="sign-checkbox" hidden />
                                 <label for="sign-checkbox" class="sign__card-label">Set as default card</label>
                             </div>
-                            <a href="#!" class="sign__recovery">Recovery Password</a>
                         </div>
-                        <button class="btn btn--primary sign__btn">Sign Up</button>
+                        <button class="btn btn--primary sign__btn"><a href="./index-logined.html">Sign Up</a></button>
                         <button class="btn btn--outline sign__btn sign__btn--gmail">
                             <img src="./assets/icons/google.svg" alt="" />
                             <span>Sign in with Gmail</span>

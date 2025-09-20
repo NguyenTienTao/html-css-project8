@@ -150,9 +150,12 @@ function handleActiveMenu() {
  * <button class="js-toggle" toggle-target="#box">Click</button>
  * <div id="box">Content show/hide</div>
  */
-window.addEventListener("template-loaded", initJsToggle);
+window.addEventListener("template-loaded", () => initJsToggle(true));
+window.addEventListener("DOMContentLoaded", () => initJsToggle(false));
 
-function initJsToggle() {
+function initJsToggle(fromTemplate) {
+    console.log("the thoi");
+
     $$(".js-toggle").forEach((button) => {
         const target = button.getAttribute("toggle-target");
         if (!target) {
@@ -160,6 +163,7 @@ function initJsToggle() {
         }
         button.onclick = (e) => {
             e.preventDefault();
+            console.log("test");
 
             if (!$(target)) {
                 return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
@@ -171,14 +175,16 @@ function initJsToggle() {
                 $(target).classList.toggle("show", isHidden);
             });
         };
-        document.onclick = function (e) {
-            if (!e.target.closest(target)) {
-                const isHidden = $(target).classList.contains("hide");
-                if (!isHidden) {
-                    button.click();
+        if (fromTemplate) {
+            document.onclick = function (e) {
+                if (!e.target.closest(target)) {
+                    const isHidden = $(target).classList.contains("hide");
+                    if (!isHidden) {
+                        button.click();
+                    }
                 }
-            }
-        };
+            };
+        }
     });
 }
 

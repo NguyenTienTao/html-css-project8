@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 .input {
     display: block;
     height: 50px;
@@ -6,12 +8,39 @@
     border-style: solid;
     font-size: 1.8rem;
 
+    @include abstracts.screen(md) {
+        font-size: 1.6rem;
+    }
+
     &__no-label {
         padding: 12px;
         border-color: var(--input-no-label-border);
         display: flex;
         align-items: center;
         gap: 10px;
+        transition: border-color 0.25s;
+
+        &:focus-within {
+            border-color: #77dae6;
+        }
+
+        &:has(:invalid):has(&--text:not(:placeholder-shown)) {
+            border-color: red;
+            background: rgba($color: red, $alpha: 0.1);
+
+            .input__no-label--icon {
+                display: none;
+
+                &-error {
+                    display: block;
+                    animation: shake 0.8s;
+                }
+            }
+
+            ~ .form__error {
+                display: block;
+            }
+        }
 
         &--text {
             flex: 1;
@@ -20,11 +49,30 @@
                 color: var(--input-no-label-placeholder);
                 font-size: 1.8rem;
                 font-weight: 500;
+
+                @include abstracts.screen(md) {
+                    font-size: 1.6rem;
+                }
             }
         }
 
         &--icon {
             filter: var(--input-no-label-icon);
+            width: 24px;
+            height: 24px;
+
+            &-error {
+                display: none;
+                filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(5858%) hue-rotate(360deg)
+                    brightness(106%) contrast(125%);
+            }
         }
     }
+}
+
+.form__error {
+    color: red;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    display: none;
 }
