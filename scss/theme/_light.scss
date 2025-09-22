@@ -82,4 +82,27 @@ html {
     --input-no-label-placeholder: var(--input-no-label-border);
     --input-no-label-icon: brightness(0) saturate(100%) invert(70%) sepia(10%) saturate(233%) hue-rotate(206deg)
         brightness(89%) contrast(90%);
+
+    // Product-page
+    --product-page-bg: #fff;
+    --product-preview-thumb-border: rgb(237, 237, 246, 0.8);
+    --product-preview-thumb-border-hover: #ededf6;
+    --product-preview-thumb-border-current: #1a162e;
+    --product-info-bg: #f6f6f6;
+    --product-info-text-color: var(--text-color);
+    --product-select-border: #d2d1d6;
+    --product-info-tag-bg: #ededf6;
+    --prod-pay-text: #000;
+
+    @include abstracts.screen(md) {
+        --product-page-bg: #fafafd;
+    }
+
+    // Breadcrumbs
+    --breadcrumbs-bg: #f6f6f6;
+    --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+
+    @include abstracts.screen(md) {
+        --breadcrumbs-bg: #fff;
+    }
 }
