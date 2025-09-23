@@ -1,19 +1,48 @@
+@use "../abstracts";
+
 .product-page {
     display: flex;
     flex-direction: column;
     background: var(--product-page-bg);
+    padding-bottom: 50px;
 }
 
 .product-container {
     margin-top: 30px;
+
+    @include abstracts.screen(sm) {
+        margin-top: 20px;
+    }
+}
+
+.prod-wrap {
+    @include abstracts.screen(sm) {
+        box-shadow: 0 20px 60px 10px var(--product-wrap-shadow);
+    }
 }
 
 .prod-preview {
     overflow-x: hidden;
     padding: 0 30px;
 
+    @include abstracts.screen(lg) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    @include abstracts.screen(sm) {
+        padding: 16px;
+        padding-bottom: 0;
+        background: var(--prod-wrap-bg);
+        border-radius: 20px 20px 0 0;
+    }
+
     &__list {
         display: flex;
+
+        @include abstracts.screen(lg) {
+            flex: 1;
+        }
     }
 
     &__item {
@@ -21,6 +50,10 @@
         width: 100%;
         flex-shrink: 0;
         padding-top: 92%;
+
+        @include abstracts.screen(sm) {
+            padding-top: 100%;
+        }
     }
 
     &__img {
@@ -37,6 +70,14 @@
         display: flex;
         justify-content: center;
         gap: 16px;
+
+        @include abstracts.screen(lg) {
+            flex-direction: column;
+        }
+
+        @include abstracts.screen(md) {
+            display: none;
+        }
     }
 
     &__thumb {
@@ -67,11 +108,35 @@
     color: var(--product-info-text-color);
     background: var(--product-info-bg);
 
+    @include abstracts.screen(sm) {
+        padding: 16px;
+        padding-top: 0;
+        background: var(--prod-wrap-bg);
+        border-radius: 0 0 20px 20px;
+    }
+
     &__heading {
         margin-bottom: 30px;
         font-size: 2.6rem;
         font-weight: 500;
         line-height: 138.462%;
+
+        @include abstracts.screen(sm) {
+            margin-bottom: 16px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 144.444%;
+        }
+    }
+
+    &__right {
+        @include abstracts.screen(xl) {
+            margin-top: 30px;
+        }
+
+        @include abstracts.screen(sm) {
+            margin-top: 40px;
+        }
     }
 }
 
@@ -107,6 +172,14 @@
 
 .prod-select {
     width: min(261px, 100%);
+
+    @include abstracts.screen(xl) {
+        width: 80%;
+    }
+
+    @include abstracts.screen(sm) {
+        width: 261px;
+    }
 
     &__label {
         font-size: 2.2rem;
@@ -221,6 +294,10 @@
     &__card {
         width: 213px;
         color: inherit;
+
+        @include abstracts.screen(lg) {
+            flex: 1;
+        }
     }
 
     &__like {
@@ -238,4 +315,85 @@
 
 .prod__icon--theme {
     filter: var(--product-info-icon);
+}
+
+.prod-tab {
+    color: var(--text-color);
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-left: -20px;
+
+        @include abstracts.screen(md) {
+            gap: 0;
+            margin-left: -10px;
+        }
+    }
+
+    &__item {
+        color: #9e9da8;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 145.455%;
+        user-select: none;
+        padding: 0 20px;
+
+        &:not(&--current) {
+            cursor: pointer;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            line-height: 142.857%;
+            padding: 0 10px;
+        }
+
+        &--current {
+            color: inherit;
+        }
+    }
+
+    &__contents {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__content {
+        display: none;
+        width: 100%;
+
+        &--current {
+            display: block;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 30px;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 141.667%;
+
+        @include abstracts.screen(md) {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 144.444%;
+        }
+    }
+
+    &__text-content {
+        margin-top: -20px;
+    }
+}
+
+.prod-review {
+    flex-wrap: nowrap;
+    overflow: hidden;
+
+    @include abstracts.screen(lg) {
+        flex-wrap: wrap;
+    }
 }

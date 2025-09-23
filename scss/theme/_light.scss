@@ -83,8 +83,14 @@ html {
     --input-no-label-icon: brightness(0) saturate(100%) invert(70%) sepia(10%) saturate(233%) hue-rotate(206deg)
         brightness(89%) contrast(90%);
 
+    // Search bar
+    --search-bar-bg: #fff;
+    --search-bar-placeholder: #9e9da8;
+
     // Product-page
     --product-page-bg: #fff;
+    --product-wrap-shadow: rgba(237, 237, 246, 0.2);
+    --prod-wrap-bg: #fff;
     --product-preview-thumb-border: rgb(237, 237, 246, 0.8);
     --product-preview-thumb-border-hover: #ededf6;
     --product-preview-thumb-border-current: #1a162e;
@@ -105,4 +111,7 @@ html {
     @include abstracts.screen(md) {
         --breadcrumbs-bg: #fff;
     }
+
+    // Review card
+    --review-card-bg: #fafafd;
 }
