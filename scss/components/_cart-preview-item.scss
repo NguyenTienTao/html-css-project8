@@ -1,0 +1,27 @@
+.cart-preview-item {
+    &__thumb {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    &__title,
+    &__price {
+        text-align: start;
+    }
+
+    &__title {
+        margin-top: 14px;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 142.857%;
+    }
+
+    &__price {
+        margin-top: 6px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+    }
+}

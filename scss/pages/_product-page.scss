@@ -5,6 +5,10 @@
     flex-direction: column;
     background: var(--product-page-bg);
     padding-bottom: 50px;
+
+    &__breadcrumbs {
+        background: var(--product-page-breadcrumbs-bg);
+    }
 }
 
 .product-container {

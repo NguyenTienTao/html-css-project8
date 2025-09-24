@@ -214,6 +214,15 @@
 
         padding: 13px 20px;
         cursor: pointer;
+
+        &-wrap {
+            position: relative;
+
+            &:hover .act-dropdown {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
     }
 
     &__title {

@@ -94,10 +94,32 @@ html.dark {
     --product-info-tag-bg: #292e39;
     --prod-pay-text: var(--product-info-text-color);
 
+    // Checkout page
+    --checkout-page-bg: inherit;
+    --checkout-text-color: #b9babe;
+    --checkout-cart-info-bg: #171c28;
+    --checkout-cart-info-shadow: rgba(23, 28, 40, 0.2);
+    --checkout-cart-info-back-icon: brightness(0) saturate(100%) invert(92%) sepia(6%) saturate(137%) hue-rotate(191deg)
+        brightness(82%) contrast(87%);
+    --gift-item-icon-wrap-bg: #292e39;
+    --gift-item-icon-wrap-shadow: transparent;
+
     // Breadcrumbs
     --breadcrumbs-bg: #171c28;
     --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+    --product-page-breadcrumbs-bg: #171c28;
 
     // Review card
     --review-card-bg: #171c28;
+
+    // Act dropdown
+    --act-dropdown-bg: #292e39;
+    --act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+    --act-dropdown-text-color: #b9babe;
+    --act-dropdown-bottom-border: #171c28;
+    --act-dropdown-arrow-color: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(2328%) hue-rotate(183deg)
+        brightness(90%) contrast(83%);
+
+    // Cart item
+    --cart-item-input-border: #292e39;
 }
