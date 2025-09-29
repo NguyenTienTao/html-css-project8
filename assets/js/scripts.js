@@ -154,8 +154,6 @@ window.addEventListener("template-loaded", () => initJsToggle(true));
 window.addEventListener("DOMContentLoaded", () => initJsToggle(false));
 
 function initJsToggle(fromTemplate) {
-    console.log("the thoi");
-
     $$(".js-toggle").forEach((button) => {
         const target = button.getAttribute("toggle-target");
         if (!target) {
@@ -163,7 +161,6 @@ function initJsToggle(fromTemplate) {
         }
         button.onclick = (e) => {
             e.preventDefault();
-            console.log("test");
 
             if (!$(target)) {
                 return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);

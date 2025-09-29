@@ -1383,6 +1383,8 @@ html {
   --act-dropdown-shadow: rgba(200, 200, 200, 0.4);
   --act-dropdown-bottom-border: #d2d1d6;
   --cart-item-input-border: #d2d1d6;
+  --dialog-bg-color: #fff;
+  --dialog-shadow: rgba(237, 237, 246, 0.2);
 }
 @media (max-width: 767.98px) {
   html {
@@ -1508,6 +1510,8 @@ html.dark {
   --act-dropdown-arrow-color: brightness(0) saturate(100%) invert(13%) sepia(7%) saturate(2328%) hue-rotate(183deg)
       brightness(90%) contrast(83%);
   --cart-item-input-border: #292e39;
+  --dialog-bg-color: #171c28;
+  --dialog-shadow: rgba(23, 28, 40, 0.2);
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1973,6 +1977,11 @@ html.dark {
   font-size: 1.8rem;
   font-weight: 500;
   user-select: none;
+  white-space: nowrap;
+}
+.btn--small {
+  height: 40px;
+  padding: 0 16px;
 }
 .btn--text {
   color: #9e9da8;
@@ -2783,6 +2792,64 @@ html.dark {
 @media (max-width: 575.98px) {
   .cart-item__total-price {
     font-size: 1.8rem;
+  }
+}
+
+.dialog__overlay, .dialog {
+  position: fixed;
+  inset: 0;
+}
+
+.dialog {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity, visibility;
+  transition-duration: 0.3s;
+}
+.dialog.show {
+  opacity: 1;
+  visibility: visible;
+}
+.dialog__content {
+  position: relative;
+  z-index: 1;
+  max-width: min(450px, 100% - 40px);
+  background: var(--dialog-bg-color);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 20px 60px 10px var(--dialog-shadow);
+}
+.dialog__text {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+.dialog__bottom {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.dialog__btn {
+  cursor: pointer;
+}
+.dialog__overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 767.98px) {
+  .dialog {
+    padding: 20px;
+  }
+  .dialog__bottom {
+    gap: 20px;
+  }
+  .dialog__btn {
+    flex: 1;
   }
 }
 
