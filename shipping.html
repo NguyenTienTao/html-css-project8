@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,27 +29,27 @@
         </script>
 
         <!-- Main -->
-        <main class="shipping-page">
+        <main class="checkout-page">
             <div class="container">
                 <!-- Search product -->
                 <div class="search-bar d-none d-md-flex">
                     <input type="text" name="" id="" placeholder="Search for item" class="search-bar__input" />
                     <button class="search-bar__submit">
-                        <img src="./assets/icons/search.svg" alt="" class="prod__icon--theme search-bar__icon" />
+                        <img src="./assets/icons/search.svg" alt="" class="checkout__icon--theme search-bar__icon" />
                     </button>
                 </div>
 
                 <!-- BreadCrumbs -->
-                <div class="shipping-container">
+                <div class="checkout-container">
                     <ul class="breadcrumbs">
                         <li>
-                            <a href="#!" class="breadcrumbs__link">
+                            <a href="./index-logined.html" class="breadcrumbs__link">
                                 Home
                                 <img src="./assets/icons/breadcrumb-icon.svg" alt="" />
                             </a>
                         </li>
                         <li>
-                            <a href="#!" class="breadcrumbs__link">
+                            <a href="./checkout.html" class="breadcrumbs__link">
                                 Checkout
                                 <img src="./assets/icons/breadcrumb-icon.svg" alt="" />
                             </a>
@@ -61,9 +61,9 @@
                 </div>
 
                 <!-- shipping content -->
-                <div class="shipping-container">
+                <div class="checkout-container">
                     <div class="row">
-                        <div class="col-8 col-lg-6 col-md-12">
+                        <div class="col-8 col-lg-7 col-md-12">
                             <div class="cart-info">
                                 <h1 class="cart-info__heading">1. Shipping, arrives between Mon, May 16—Tue, May 24</h1>
                                 <div class="cart-info__separate"></div>
@@ -75,19 +75,31 @@
                                             <h2 class="user-address__title">Shipping address</h2>
                                             <p class="user-address__desc">Where should we deliver your order?</p>
                                         </div>
-                                        <a href="#!" class="user-address__btn btn btn--primary btn--rounded btn--small">
+                                        <button href="#!" class="user-address__btn btn btn--primary btn--rounded">
                                             <img src="./assets/icons/plus.svg" alt="" />
                                             Add a new address
-                                        </a>
+                                        </button>
                                     </div>
 
                                     <!-- Address List -->
                                     <div class="user-address__list">
-                                        <div class="address-card">
+                                        <!-- Empty message -->
+                                        <!-- <p class="user-address__message">
+                                            Not address yet.
+                                            <a href="#!" class="user-address__link">Add a new address</a>
+                                        </p> -->
+
+                                        <!-- Address card 1 -->
+                                        <article class="address-card">
                                             <div class="address-card__left">
                                                 <div class="address-card__choose">
-                                                    <label class="cart-info__checkbox">
-                                                        <input type="radio" name="" class="cart-info__checkbox-input" />
+                                                    <label class="address-card__checkbox">
+                                                        <input
+                                                            type="radio"
+                                                            name="checkbox-address"
+                                                            checked
+                                                            class="address-card__checkbox-input"
+                                                        />
                                                     </label>
                                                 </div>
                                                 <div class="address-card__info">
@@ -103,15 +115,60 @@
                                             </div>
                                             <div class="address-card__right">
                                                 <div class="address-card__ctrl">
-                                                    <button class="cart-info__edit-btn">
-                                                        <img src="./assets/icons/edit.svg" alt="" class="icon" />
+                                                    <button class="address-card__ctrl-btn">
+                                                        <img
+                                                            src="./assets/icons/edit.svg"
+                                                            alt=""
+                                                            class="checkout__icon--theme icon"
+                                                        />
                                                         Edit
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </article>
+                                        <!-- Address card 2 -->
+                                        <article class="address-card">
+                                            <div class="address-card__left">
+                                                <div class="address-card__choose">
+                                                    <label class="address-card__checkbox">
+                                                        <input
+                                                            type="radio"
+                                                            name="checkbox-address"
+                                                            class="address-card__checkbox-input"
+                                                        />
+                                                    </label>
+                                                </div>
+                                                <div class="address-card__info">
+                                                    <h3 class="address-card__title">Imran Khan</h3>
+                                                    <p class="address-card__desc">
+                                                        Al Hamra City (10th Floor), Hazrat Shahjalal Road, Sylhet,
+                                                        Sylhet, Bangladesh
+                                                    </p>
+                                                    <ul class="address-card__list">
+                                                        <li class="address-card__item">Shipping</li>
+                                                        <li class="address-card__item">Delivery from store</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="address-card__right">
+                                                <div class="address-card__ctrl">
+                                                    <button class="address-card__ctrl-btn">
+                                                        <img
+                                                            src="./assets/icons/edit.svg"
+                                                            alt=""
+                                                            class="checkout__icon--theme icon"
+                                                        />
+                                                        Edit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </article>
                                     </div>
                                 </div>
+
+                                <h2 class="cart-info__title">Items details</h2>
+
+                                <!-- Cart list -->
                                 <div class="cart-info__list">
                                     <!-- Cart item -->
                                     <article class="cart-item">
@@ -138,7 +195,7 @@
                                                         <img
                                                             src="./assets/icons/arrow-down-2.svg"
                                                             alt=""
-                                                            class="cart-item__input-icon"
+                                                            class="checkout__icon--theme cart-item__input-icon"
                                                         />
                                                     </div>
                                                     <div class="cart-item__input">
@@ -146,7 +203,7 @@
                                                             <img
                                                                 src="./assets/icons/minus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                         1
@@ -154,7 +211,7 @@
                                                             <img
                                                                 src="./assets/icons/plus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                     </div>
@@ -203,7 +260,7 @@
                                                         <img
                                                             src="./assets/icons/arrow-down-2.svg"
                                                             alt=""
-                                                            class="cart-item__input-icon"
+                                                            class="checkout__icon--theme cart-item__input-icon"
                                                         />
                                                     </div>
                                                     <div class="cart-item__input">
@@ -211,7 +268,7 @@
                                                             <img
                                                                 src="./assets/icons/minus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                         2
@@ -219,7 +276,7 @@
                                                             <img
                                                                 src="./assets/icons/plus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                     </div>
@@ -268,7 +325,7 @@
                                                         <img
                                                             src="./assets/icons/arrow-down-2.svg"
                                                             alt=""
-                                                            class="cart-item__input-icon"
+                                                            class="checkout__icon--theme cart-item__input-icon"
                                                         />
                                                     </div>
                                                     <div class="cart-item__input">
@@ -276,7 +333,7 @@
                                                             <img
                                                                 src="./assets/icons/minus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                         1
@@ -284,7 +341,7 @@
                                                             <img
                                                                 src="./assets/icons/plus.svg"
                                                                 alt=""
-                                                                class="cart-item__input-icon"
+                                                                class="checkout__icon--theme cart-item__input-icon"
                                                             />
                                                         </button>
                                                     </div>
@@ -313,7 +370,7 @@
                                         <img
                                             src="./assets/icons/arrow-left-2.svg"
                                             alt=""
-                                            class="cart-info__back-icon"
+                                            class="checkout__icon--theme cart-info__back-icon"
                                         />
                                         Continue Shopping
                                     </a>
@@ -335,7 +392,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 col-lg-6 col-md-12">
+                        <div class="col-4 col-lg-5 col-md-12">
                             <div class="cart-info">
                                 <div class="cart-info__row">
                                     <p class="cart-info__label">
