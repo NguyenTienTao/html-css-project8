@@ -345,20 +345,20 @@
             load("#footer", "./templates/footer.html");
         </script>
 
-        <!-- Dialog/ Model -->
-        <div id="delete-confirm" class="dialog hide">
-            <div class="dialog__content">
-                <div class="dialog__text">Lorem ipsum dolor sit amet?</div>
-                <div class="dialog__bottom">
-                    <button class="dialog__btn btn--small btn btn--text js-toggle" toggle-target="#delete-confirm">
+        <!-- Model -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <div class="modal__content">
+                <div class="modal__text">Lorem ipsum dolor sit amet?</div>
+                <div class="modal__bottom">
+                    <button class="modal__btn btn--small btn btn--text js-toggle" toggle-target="#delete-confirm">
                         Cancel
                     </button>
-                    <button class="dialog__btn btn btn--small btn--primary js-toggle" toggle-target="#delete-confirm">
+                    <button class="modal__btn btn btn--small btn--primary js-toggle" toggle-target="#delete-confirm">
                         Confirm
                     </button>
                 </div>
             </div>
-            <div class="dialog__overlay js-toggle" toggle-target="#delete-confirm"></div>
+            <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
         </div>
     </body>
 </html>

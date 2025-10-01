@@ -44,9 +44,27 @@
                             all information.
                         </p>
                         <form action="./index-logined.html" class="sign__form">
-                            <div class="input input__no-label">
-                                <input type="email" name="" id="" placeholder="Email" class="input__no-label--text" />
-                                <img src="./assets/icons/message.svg" alt="" class="input__no-label--icon" />
+                            <div class="sign__form-group">
+                                <div>
+                                    <div class="input input__no-label">
+                                        <input
+                                            type="email"
+                                            name=""
+                                            id=""
+                                            placeholder="Email"
+                                            class="input__no-label--text"
+                                            required
+                                            value="test@gmail.com"
+                                        />
+                                        <img src="./assets/icons/message.svg" alt="" class="input__no-label--icon" />
+                                        <img
+                                            src="./assets/icons/error.svg"
+                                            alt=""
+                                            class="input__no-label--icon input__no-label--icon-error"
+                                        />
+                                    </div>
+                                    <p class="form__error">Email chưa chính xác</p>
+                                </div>
                             </div>
                             <div class="sign__form-group">
                                 <div class="input input__no-label">
@@ -56,10 +74,19 @@
                                         id=""
                                         placeholder="Password"
                                         class="input__no-label--text"
+                                        required
+                                        minlength="6"
+                                        value="123456"
                                     />
                                     <img src="./assets/icons/lock.svg" alt="" class="input__no-label--icon" />
+                                    <img
+                                        src="./assets/icons/error.svg"
+                                        alt=""
+                                        class="input__no-label--icon input__no-label--icon-error"
+                                    />
                                 </div>
                             </div>
+                            <p class="form__error">Mật khẩu chưa chính xác</p>
                         </form>
                         <div class="sign__utility">
                             <div class="sign__card">

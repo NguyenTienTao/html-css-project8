@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,7 +75,11 @@
                                             <h2 class="user-address__title">Shipping address</h2>
                                             <p class="user-address__desc">Where should we deliver your order?</p>
                                         </div>
-                                        <button href="#!" class="user-address__btn btn btn--primary btn--rounded">
+                                        <button
+                                            href="#!"
+                                            class="user-address__btn btn btn--primary btn--rounded js-toggle"
+                                            toggle-target="#add-new-address"
+                                        >
                                             <img src="./assets/icons/plus.svg" alt="" />
                                             Add a new address
                                         </button>
@@ -115,7 +119,10 @@
                                             </div>
                                             <div class="address-card__right">
                                                 <div class="address-card__ctrl">
-                                                    <button class="address-card__ctrl-btn">
+                                                    <button
+                                                        class="address-card__ctrl-btn js-toggle"
+                                                        toggle-target="#add-new-address"
+                                                    >
                                                         <img
                                                             src="./assets/icons/edit.svg"
                                                             alt=""
@@ -152,7 +159,10 @@
                                             </div>
                                             <div class="address-card__right">
                                                 <div class="address-card__ctrl">
-                                                    <button class="address-card__ctrl-btn">
+                                                    <button
+                                                        class="address-card__ctrl-btn js-toggle"
+                                                        toggle-target="#add-new-address"
+                                                    >
                                                         <img
                                                             src="./assets/icons/edit.svg"
                                                             alt=""
@@ -224,7 +234,10 @@
                                                         <img src="./assets/icons/heart-2.svg" alt="" />
                                                         Save
                                                     </button>
-                                                    <button class="cart-item__ctrl-btn">
+                                                    <button
+                                                        class="cart-item__ctrl-btn js-toggle"
+                                                        toggle-target="#delete-confirm"
+                                                    >
                                                         <img src="./assets/icons/trash.svg" alt="" />
                                                         Delete
                                                     </button>
@@ -289,7 +302,10 @@
                                                         <img src="./assets/icons/heart-2.svg" alt="" />
                                                         Save
                                                     </button>
-                                                    <button class="cart-item__ctrl-btn">
+                                                    <button
+                                                        class="cart-item__ctrl-btn js-toggle"
+                                                        toggle-target="#delete-confirm"
+                                                    >
                                                         <img src="./assets/icons/trash.svg" alt="" />
                                                         Delete
                                                     </button>
@@ -354,7 +370,10 @@
                                                         <img src="./assets/icons/heart-2.svg" alt="" />
                                                         Save
                                                     </button>
-                                                    <button class="cart-item__ctrl-btn">
+                                                    <button
+                                                        class="cart-item__ctrl-btn js-toggle"
+                                                        toggle-target="#delete-confirm"
+                                                    >
                                                         <img src="./assets/icons/trash.svg" alt="" />
                                                         Delete
                                                     </button>
@@ -430,5 +449,173 @@
         <script>
             load("#footer", "./templates/footer.html");
         </script>
+
+        <!-- Model: delete cart -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <div class="modal__content">
+                <div class="modal__text">Lorem ipsum dolor sit amet?</div>
+                <div class="modal__bottom">
+                    <button class="modal__btn btn--small btn btn--text js-toggle" toggle-target="#delete-confirm">
+                        Cancel
+                    </button>
+                    <button class="modal__btn btn btn--small btn--primary js-toggle" toggle-target="#delete-confirm">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+            <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
+        </div>
+
+        <!-- Model: add new address -->
+        <div id="add-new-address" class="modal hide" style="--content-width: 650px">
+            <div class="modal__content">
+                <h2 class="modal__heading">Add new shipping address</h2>
+                <div class="modal__body">
+                    <form action="#!" class="sign__form sign__form--mt-short">
+                        <div class="sign__form-group sign__form-group--row">
+                            <div>
+                                <label for="name" class="filter__form-label filter__form-label--small">Name</label>
+                                <div class="input input__no-label">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Name"
+                                        class="input__no-label--text"
+                                        required
+                                        minlength="2"
+                                        autocomplete="off"
+                                    />
+                                    <img
+                                        src="./assets/icons/error.svg"
+                                        alt=""
+                                        class="input__no-label--icon input__no-label--icon-error"
+                                    />
+                                </div>
+                                <p class="form__error">Tên ít nhất có 2 kí tự</p>
+                            </div>
+                            <div>
+                                <label for="phone" class="filter__form-label filter__form-label--small">Phone</label>
+                                <div class="input input__no-label">
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        id="phone"
+                                        placeholder="Phone"
+                                        class="input__no-label--text"
+                                        required
+                                        minlength="10"
+                                        autocomplete="off"
+                                    />
+                                    <img
+                                        src="./assets/icons/error.svg"
+                                        alt=""
+                                        class="input__no-label--icon input__no-label--icon-error"
+                                    />
+                                </div>
+                                <p class="form__error">Số điện thoại chưa đủ 10 số</p>
+                            </div>
+                        </div>
+                        <div class="sign__form-group">
+                            <div>
+                                <label for="address" class="filter__form-label filter__form-label--small"
+                                    >Address</label
+                                >
+                                <div class="input input__textarea">
+                                    <textarea
+                                        name="address"
+                                        id="address"
+                                        placeholder="Address (Area and street)"
+                                        class="input__textarea--field"
+                                        required
+                                        autocomplete="off"
+                                    ></textarea>
+                                    <img
+                                        src="./assets/icons/error.svg"
+                                        alt=""
+                                        class="input__no-label--icon input__no-label--icon-error"
+                                    />
+                                </div>
+                                <p class="form__error">Address is empty</p>
+                            </div>
+                        </div>
+                        <div class="sign__form-group">
+                            <div>
+                                <label for="city" class="filter__form-label filter__form-label--small"
+                                    >City/District</label
+                                >
+                                <div class="input input__no-label">
+                                    <input
+                                        type="text"
+                                        name=""
+                                        id="city"
+                                        placeholder="City/District"
+                                        class="input__no-label--text js-toggle"
+                                        autocomplete="off"
+                                        toggle-target="#city-dialog"
+                                    />
+                                    <img
+                                        src="./assets/icons/error.svg"
+                                        alt=""
+                                        class="input__no-label--icon input__no-label--icon-error"
+                                    />
+
+                                    <!-- Dialog select -->
+                                    <div id="city-dialog" class="input__select-dialog hide">
+                                        <div class="input__search">
+                                            <input type="text" placeholder="Search" class="input__search--field" />
+                                            <img
+                                                src="./assets/icons/search.svg"
+                                                alt=""
+                                                class="input__search--icon checkout__icon--theme"
+                                            />
+                                        </div>
+                                        <ul class="input__options-list">
+                                            <li class="input__option">Ha Noi</li>
+                                            <li class="input__option input__option--current">Ho Chi Minh</li>
+                                            <li class="input__option">Da Nang</li>
+                                            <li class="input__option">Bac Ninh</li>
+                                            <li class="input__option">Kien Giang</li>
+                                            <li class="input__option">Phu Tho</li>
+                                            <li class="input__option">Quang Ninh</li>
+                                            <li class="input__option">Hai Phong</li>
+                                            <li class="input__option">Lam Dong</li>
+                                            <li class="input__option">Nghe An</li>
+                                            <li class="input__option">Thanh Hoa</li>
+                                            <li class="input__option">Ha Tinh</li>
+                                            <li class="input__option">Hue</li>
+                                            <li class="input__option">Lang Son</li>
+                                            <li class="input__option">Cao Bang</li>
+                                            <li class="input__option">Can Tho</li>
+                                            <li class="input__option">Hai Duong</li>
+                                            <li class="input__option">Nam Dinh</li>
+                                            <li class="input__option">Yen Bai</li>
+                                            <li class="input__option">Ninh Binh</li>
+                                            <li class="input__option">Vinh Phuc</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- <p class="form__error">Tên ít nhất có 2 kí tự</p> -->
+                            </div>
+                        </div>
+                        <div class="sign__form-group">
+                            <div class="sign__card">
+                                <input type="checkbox" name="" id="sign-checkbox" hidden />
+                                <label for="sign-checkbox" class="sign__card-label">Set as default card</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal__bottom">
+                    <button class="modal__btn btn--small btn btn--text js-toggle" toggle-target="#add-new-address">
+                        Cancel
+                    </button>
+                    <button class="modal__btn btn btn--small btn--primary js-toggle" toggle-target="#add-new-address">
+                        Create
+                    </button>
+                </div>
+            </div>
+            <div class="modal__overlay"></div>
+        </div>
     </body>
 </html>

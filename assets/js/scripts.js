@@ -154,6 +154,8 @@ window.addEventListener("template-loaded", () => initJsToggle(true));
 window.addEventListener("DOMContentLoaded", () => initJsToggle(false));
 
 function initJsToggle(fromTemplate) {
+    const cityDialog = $("#city-dialog");
+
     $$(".js-toggle").forEach((button) => {
         const target = button.getAttribute("toggle-target");
         if (!target) {
@@ -166,6 +168,11 @@ function initJsToggle(fromTemplate) {
                 return (document.body.innerText = `Không tìm thấy phần tử "${target}"`);
             }
             const isHidden = $(target).classList.contains("hide");
+
+            if (cityDialog.classList.contains("show")) {
+                cityDialog.classList.remove("show");
+                cityDialog.classList.toggle("hide");
+            }
 
             requestAnimationFrame(() => {
                 $(target).classList.toggle("hide", !isHidden);

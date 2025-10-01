@@ -160,6 +160,7 @@ button {
   padding: 0;
 }
 
+textarea,
 button,
 input {
   border: none;
@@ -2262,16 +2263,40 @@ html.dark {
     font-size: 1.6rem;
   }
 }
-.input__no-label {
+.input__textarea, .input__no-label {
   padding: 12px;
   border-color: var(--input-no-label-border);
   display: flex;
   align-items: center;
-  gap: 10px;
   transition: border-color 0.25s;
 }
-.input__no-label:focus-within {
+.input__textarea:focus-within, .input__no-label:focus-within {
   border-color: #77dae6;
+}
+.input__textarea {
+  height: 120px;
+}
+.input__textarea--field {
+  resize: none;
+  height: 100%;
+}
+.input__textarea--field, .input__no-label--text {
+  flex: 1;
+  width: 100%;
+}
+.input__textarea--field::placeholder, .input__no-label--text::placeholder {
+  color: var(--input-no-label-placeholder);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+@media (max-width: 767.98px) {
+  .input__textarea--field::placeholder, .input__no-label--text::placeholder {
+    font-size: 1.6rem;
+  }
+}
+.input__no-label {
+  gap: 10px;
+  position: relative;
 }
 .input__no-label:has(:invalid):has(.input__no-label--text:not(:placeholder-shown)) {
   border-color: red;
@@ -2287,19 +2312,6 @@ html.dark {
 .input__no-label:has(:invalid):has(.input__no-label--text:not(:placeholder-shown)) ~ .form__error {
   display: block;
 }
-.input__no-label--text {
-  flex: 1;
-}
-.input__no-label--text::placeholder {
-  color: var(--input-no-label-placeholder);
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-@media (max-width: 767.98px) {
-  .input__no-label--text::placeholder {
-    font-size: 1.6rem;
-  }
-}
 .input__no-label--icon {
   filter: var(--input-no-label-icon);
   width: 24px;
@@ -2308,6 +2320,74 @@ html.dark {
 .input__no-label--icon-error {
   display: none;
   filter: brightness(0) saturate(100%) invert(16%) sepia(87%) saturate(5858%) hue-rotate(360deg) brightness(106%) contrast(125%);
+}
+.input__select-dialog {
+  position: absolute;
+  left: 10px;
+  bottom: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 8px;
+  transition: opacity, visibility, translate;
+  transition-duration: 0.3s;
+  min-width: 230px;
+  max-height: 320px;
+  background: var(--dialog-bg-color);
+  padding: 0px 0px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--input-no-label-border);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.input__select-dialog.show {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+.input__search {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--input-no-label-border);
+  padding: 0px 20px;
+  height: 38px;
+}
+@media (max-width: 991.98px) {
+  .input__search {
+    height: 42px;
+  }
+}
+.input__search--field {
+  height: 100%;
+}
+.input__search--icon {
+  width: 18px;
+}
+.input__options-list {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.input__option {
+  font-size: 1.4rem;
+  padding: 8px 20px;
+}
+@media (max-width: 991.98px) {
+  .input__option {
+    padding: 14px 20px;
+  }
+}
+.input__option--current {
+  font-weight: 500;
+  background: rgba(255, 183, 0, 0.5);
+}
+.input__option:not(.input__option--current):hover {
+  background: rgba(153, 153, 153, 0.5);
+  cursor: pointer;
 }
 
 .form__error {
@@ -2795,12 +2875,12 @@ html.dark {
   }
 }
 
-.dialog__overlay, .dialog {
+.modal__overlay, .modal {
   position: fixed;
   inset: 0;
 }
 
-.dialog {
+.modal {
   z-index: 10;
   display: flex;
   align-items: center;
@@ -2810,45 +2890,87 @@ html.dark {
   transition: opacity, visibility;
   transition-duration: 0.3s;
 }
-.dialog.show {
+.modal.show {
   opacity: 1;
   visibility: visible;
 }
-.dialog__content {
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 3px 20px;
+  font-size: 3.5rem;
+  opacity: 0.7;
+}
+.modal__close:hover {
+  opacity: 1;
+}
+.modal__content {
   position: relative;
   z-index: 1;
-  max-width: min(450px, 100% - 40px);
+  width: min(var(--content-width, 800px), 100% - 40px);
   background: var(--dialog-bg-color);
-  padding: 30px;
+  padding: 30px 10px 30px 30px;
   border-radius: 20px;
   box-shadow: 0px 20px 60px 10px var(--dialog-shadow);
 }
-.dialog__text {
+@media (max-width: 575.98px) {
+  .modal__content {
+    padding: 20px 0 20px 20px;
+  }
+}
+.modal--small .modal__content {
+  --content-width: 400px;
+}
+.modal--large .modal__content {
+  --content-width: 1100px;
+}
+.modal--fill .modal__content {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.modal__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 141.667%;
+}
+.modal__body {
+  padding-right: 20px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.modal__text {
   font-size: 1.8rem;
   line-height: 1.5;
 }
-.dialog__bottom {
+.modal__bottom {
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 30px;
+  padding-right: 20px;
 }
-.dialog__btn {
+@media (max-width: 575.98px) {
+  .modal__bottom {
+    margin-top: 20px;
+  }
+}
+.modal__btn {
   cursor: pointer;
 }
-.dialog__overlay {
+.modal__overlay {
   background: rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 767.98px) {
-  .dialog {
-    padding: 20px;
-  }
-  .dialog__bottom {
+  .modal__bottom {
     gap: 20px;
   }
-  .dialog__btn {
+  .modal__btn {
     flex: 1;
   }
 }
@@ -3578,17 +3700,35 @@ html.dark {
     margin-top: 30px;
   }
 }
+.sign__form--mt-short {
+  margin-top: 40px;
+}
 .sign__form-group {
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
+.sign__form-group ~ .sign__form-group {
+  margin-top: 24px;
+}
 @media (max-width: 767.98px) {
-  .sign__form-group {
+  .sign__form-group ~ .sign__form-group {
     margin-top: 20px;
     gap: 20px;
   }
+}
+.sign__form-group--row {
+  flex-direction: row;
+  gap: 30px;
+}
+@media (max-width: 767.98px) {
+  .sign__form-group--row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.sign__form-group--row > * {
+  flex: 1;
 }
 .sign__form:has(:invalid) ~ .sign__btn:not(.sign__btn--gmail) {
   opacity: 0.5;
