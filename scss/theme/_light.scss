@@ -140,4 +140,12 @@ html {
     // Dialog
     --dialog-bg-color: #fff;
     --dialog-shadow: rgba(237, 237, 246, 0.2);
+
+    // Payment item
+    --payment-item-bg: #f6f6f6;
+    --payment-text-input-color: #d2d1d6;
+
+    @include abstracts.screen(md) {
+        --payment-item-bg: #fafafd;
+    }
 }

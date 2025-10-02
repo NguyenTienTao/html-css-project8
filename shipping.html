@@ -97,12 +97,12 @@
                                         <article class="address-card">
                                             <div class="address-card__left">
                                                 <div class="address-card__choose">
-                                                    <label class="address-card__checkbox">
+                                                    <label class="cart-info__checkbox">
                                                         <input
                                                             type="radio"
                                                             name="checkbox-address"
                                                             checked
-                                                            class="address-card__checkbox-input"
+                                                            class="cart-info__checkbox-input"
                                                         />
                                                     </label>
                                                 </div>
@@ -120,7 +120,7 @@
                                             <div class="address-card__right">
                                                 <div class="address-card__ctrl">
                                                     <button
-                                                        class="address-card__ctrl-btn js-toggle"
+                                                        class="cart-info__edit-btn js-toggle"
                                                         toggle-target="#add-new-address"
                                                     >
                                                         <img
@@ -137,11 +137,11 @@
                                         <article class="address-card">
                                             <div class="address-card__left">
                                                 <div class="address-card__choose">
-                                                    <label class="address-card__checkbox">
+                                                    <label class="cart-info__checkbox">
                                                         <input
                                                             type="radio"
                                                             name="checkbox-address"
-                                                            class="address-card__checkbox-input"
+                                                            class="cart-info__checkbox-input"
                                                         />
                                                     </label>
                                                 </div>
@@ -160,7 +160,7 @@
                                             <div class="address-card__right">
                                                 <div class="address-card__ctrl">
                                                     <button
-                                                        class="address-card__ctrl-btn js-toggle"
+                                                        class="cart-info__edit-btn js-toggle"
                                                         toggle-target="#add-new-address"
                                                     >
                                                         <img
@@ -434,7 +434,7 @@
                                     <p class="cart-info__label">Estimated Total</p>
                                     <p class="cart-info__value">$201.65</p>
                                 </div>
-                                <a href="./shipping.html" class="btn btn--primary btn--rounded cart-info__continue">
+                                <a href="./payment.html" class="btn btn--primary btn--rounded cart-info__continue">
                                     Continue to shipping
                                 </a>
                             </div>
@@ -550,6 +550,7 @@
                                         name=""
                                         id="city"
                                         placeholder="City/District"
+                                        readonly
                                         class="input__no-label--text js-toggle"
                                         autocomplete="off"
                                         toggle-target="#city-dialog"

@@ -169,7 +169,7 @@ function initJsToggle(fromTemplate) {
             }
             const isHidden = $(target).classList.contains("hide");
 
-            if (cityDialog.classList.contains("show")) {
+            if (cityDialog && cityDialog.classList.contains("show")) {
                 cityDialog.classList.remove("show");
                 cityDialog.classList.toggle("hide");
             }

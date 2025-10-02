@@ -76,6 +76,11 @@
         max-height: calc(100vh - 180px);
         overflow-y: auto;
         overscroll-behavior: contain;
+
+        &:has(:invalid) ~ .modal__bottom .modal__btn.btn--primary {
+            opacity: 0.5;
+            pointer-events: none;
+        }
     }
 
     &__text {

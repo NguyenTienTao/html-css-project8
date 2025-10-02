@@ -59,29 +59,4 @@
         list-style: disc;
         list-style-position: inside;
     }
-
-    &__ctrl-btn {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.8rem;
-        line-height: 144.444%;
-        cursor: pointer;
-    }
-
-    &__checkbox {
-        &-input {
-            appearance: none;
-
-            &::before {
-                content: url("../icons/checkbox-uncheck.svg");
-                filter: var(--checkout-icon-theme);
-            }
-
-            &:checked::before {
-                content: url("../icons/checkbox-checked.svg");
-                filter: none;
-            }
-        }
-    }
 }
