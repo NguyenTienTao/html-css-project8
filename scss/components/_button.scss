@@ -60,10 +60,16 @@
     font-weight: 500;
     user-select: none;
     white-space: nowrap;
+    cursor: pointer;
 
     &--small {
         height: 40px;
         padding: 0 16px;
+    }
+
+    &--large {
+        height: 68px;
+        padding: 0 40px;
     }
 
     &--text {
