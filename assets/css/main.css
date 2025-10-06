@@ -1388,6 +1388,16 @@ html {
   --dialog-shadow: rgba(237, 237, 246, 0.2);
   --payment-item-bg: #f6f6f6;
   --payment-text-input-color: #d2d1d6;
+  --profile-content-bg: #fff;
+  --profile-text-color: #1a162e;
+  --profile-content-shadow: rgba(237, 237, 246, 0.2);
+  --profile-icon-theme: brightness(0) saturate(100%) invert(8%) sepia(15%) saturate(2800%) hue-rotate(212deg)
+      brightness(96%) contrast(95%);
+  --profile-info-separate: #d2d1d6;
+  --new-card-border: #d2d1d6;
+  --new-card-text-color: #d2d1d6;
+  --account-info-bg: #f6f6f6;
+  --account-info-icon-bg: #fff;
 }
 @media (max-width: 767.98px) {
   html {
@@ -1428,6 +1438,11 @@ html {
 @media (max-width: 767.98px) {
   html {
     --payment-item-bg: #fafafd;
+  }
+}
+@media (max-width: 767.98px) {
+  html {
+    --account-info-bg: #f8f8fb;
   }
 }
 
@@ -1522,6 +1537,16 @@ html.dark {
   --dialog-shadow: rgba(23, 28, 40, 0.2);
   --payment-item-bg: #292e39;
   --payment-text-input-color: #b9babe;
+  --profile-content-bg: #171c28;
+  --profile-text-color: #b9babe;
+  --profile-content-shadow: rgba(23, 28, 40, 0.2);
+  --profile-icon-theme: brightness(0) saturate(100%) invert(89%) sepia(2%) saturate(435%) hue-rotate(213deg)
+      brightness(86%) contrast(85%);
+  --profile-info-separate: #292e39;
+  --new-card-border: #b9babe;
+  --new-card-text-color: #b9babe;
+  --account-info-bg: #292e39;
+  --account-info-icon-bg: #171c28;
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -3085,6 +3110,109 @@ html.dark {
   line-height: 142.857%;
   list-style: disc;
   list-style-position: inside;
+}
+
+.payment-card {
+  position: relative;
+  z-index: 0;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  user-select: none;
+}
+.payment-card-1 {
+  background: #1e2e69;
+}
+.payment-card-2 {
+  background: #354151;
+}
+.payment-card-2 .payment-card__img {
+  right: 10px;
+}
+.payment-card__img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.payment-card__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.payment-card__type {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.payment-card__num {
+  margin-top: 37px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
+}
+.payment-card__bottom {
+  display: flex;
+  margin-top: 20px;
+}
+.payment-card__bottom > div:nth-child(2) {
+  margin: 0 auto 0 40px;
+}
+.payment-card__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 175%;
+}
+.payment-card__value {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.new-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px dashed var(--new-card-border);
+  color: var(--new-card-text-color);
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+.new-card:hover {
+  background: #f2f1f1;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--account-info-bg);
+}
+.account-info__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  background: var(--account-info-icon-bg);
+}
+.account-info__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.account-info__desc {
+  margin-top: 6px;
+  font-size: 1.4rem;
+  line-height: 142.857%;
 }
 
 .top-cta__btn, .top-cta__group, .top-bar {
@@ -4824,6 +4952,144 @@ input[type=checkbox]:checked ~ .sign__card-label::before {
     font-size: 1.4rem;
     line-height: 142.857%;
   }
+}
+
+.profile {
+  margin-bottom: 50px;
+}
+.profile-container {
+  margin-top: 30px;
+  color: var(--profile-text-color);
+}
+.profile__sidebar {
+  border-radius: 20px;
+  background: var(--profile-content-bg);
+  box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+}
+.profile-user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px 20px 0 0;
+  padding: 35px 0 20px;
+  background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%), url("../img/profile-user-bg.png") no-repeat 0% 0%/cover;
+  box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+  color: #fff;
+}
+.profile-user__avatar {
+  width: 121px;
+  height: 121px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px 2px rgba(0, 0, 0, 0.08);
+  background: #ccc content-box;
+}
+.profile-user__name {
+  margin-top: 15px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 144.444%;
+}
+.profile-user__desc {
+  margin-top: 2px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.profile-menu {
+  margin-top: 30px;
+}
+.profile-menu__wrap {
+  padding: 0px 30px 30px;
+}
+.profile-menu__title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 144.444%;
+}
+.profile-menu__list {
+  margin-top: 16px;
+}
+.profile-menu__item {
+  margin-top: 12px;
+}
+.profile-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  line-height: 146.667%;
+  border-radius: 6px;
+  transition: background-color 0.25s;
+}
+.profile-menu__link:hover {
+  background: #ebebeb;
+}
+.profile-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+.profile-info {
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--profile-content-bg);
+  box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+}
+.profile-info__margin ~ .profile-info__margin {
+  margin-top: 30px;
+}
+.profile-info__heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 141.667%;
+}
+.profile-info__desc {
+  margin: 4px 0 16px;
+  font-size: 1.5rem;
+  line-height: 146.667%;
+}
+.profile-info__separate {
+  margin: 20px 0;
+  height: 1px;
+  width: 100%;
+  background: var(--profile-info-separate);
+}
+.profile-icon__theme {
+  max-width: 100%;
+  filter: var(--profile-icon-theme);
+}
+
+.favorite-item {
+  display: flex;
+  gap: 20px;
+}
+.favorite-item__thumb {
+  width: 151px;
+  height: 108px;
+  object-fit: contain;
+}
+.favorite-item__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.favorite-item__row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.favorite-item__price {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 145.455%;
+}
+.favorite-item__btn {
+  height: 42px;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

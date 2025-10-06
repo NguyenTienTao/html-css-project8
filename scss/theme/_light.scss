@@ -148,4 +148,24 @@ html {
     @include abstracts.screen(md) {
         --payment-item-bg: #fafafd;
     }
+
+    // Profile
+    --profile-content-bg: #fff;
+    --profile-text-color: #1a162e;
+    --profile-content-shadow: rgba(237, 237, 246, 0.2);
+    --profile-icon-theme: brightness(0) saturate(100%) invert(8%) sepia(15%) saturate(2800%) hue-rotate(212deg)
+        brightness(96%) contrast(95%);
+    --profile-info-separate: #d2d1d6;
+
+    // Payment card
+    --new-card-border: #d2d1d6;
+    --new-card-text-color: #d2d1d6;
+
+    // Account info
+    --account-info-bg: #f6f6f6;
+    --account-info-icon-bg: #fff;
+
+    @include abstracts.screen(md) {
+        --account-info-bg: #f8f8fb;
+    }
 }

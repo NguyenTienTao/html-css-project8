@@ -1,0 +1,168 @@
+.profile {
+    margin-bottom: 50px;
+
+    &-container {
+        margin-top: 30px;
+        color: var(--profile-text-color);
+    }
+
+    &__sidebar {
+        border-radius: 20px;
+        background: var(--profile-content-bg);
+        box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+    }
+
+    &-user {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px 20px 0 0;
+
+        padding: 35px 0 20px;
+        background: linear-gradient(180deg, rgba(26, 22, 46, 0) 0%, #1a162e 100%),
+            url("../img/profile-user-bg.png") no-repeat 0% 0% / cover;
+        box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+        color: #fff;
+
+        &__avatar {
+            width: 121px;
+            height: 121px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 14px 2px rgba(0, 0, 0, 0.08);
+            background: #ccc content-box;
+        }
+
+        &__name {
+            margin-top: 15px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 144.444%;
+        }
+
+        &__desc {
+            margin-top: 2px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 146.667%;
+        }
+    }
+
+    &-menu {
+        margin-top: 30px;
+
+        &__wrap {
+            padding: 0px 30px 30px;
+        }
+
+        &__title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 144.444%;
+        }
+
+        &__list {
+            margin-top: 16px;
+        }
+
+        &__item {
+            margin-top: 12px;
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 1.5rem;
+            line-height: 146.667%;
+            border-radius: 6px;
+            transition: background-color 0.25s;
+
+            &:hover {
+                background: #ebebeb;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &-info {
+        padding: 30px;
+        border-radius: 20px;
+        background: var(--profile-content-bg);
+        box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
+
+        &__margin {
+            ~ .profile-info__margin {
+                margin-top: 30px;
+            }
+        }
+
+        &__heading {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 141.667%;
+        }
+
+        &__desc {
+            margin: 4px 0 16px;
+            font-size: 1.5rem;
+            line-height: 146.667%;
+        }
+
+        &__separate {
+            margin: 20px 0;
+            height: 1px;
+            width: 100%;
+            background: var(--profile-info-separate);
+        }
+    }
+
+    &-icon__theme {
+        max-width: 100%;
+        filter: var(--profile-icon-theme);
+    }
+}
+
+.favorite-item {
+    display: flex;
+    gap: 20px;
+
+    &__thumb {
+        width: 151px;
+        height: 108px;
+        object-fit: contain;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+    }
+
+    &__row {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__price {
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 145.455%;
+    }
+
+    &__btn {
+        height: 42px;
+        font-size: 1.5rem;
+    }
+}
