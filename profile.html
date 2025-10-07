@@ -41,12 +41,12 @@
 
                 <!-- Profile content -->
                 <div class="profile-container">
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row" style="--grid-gutter-y: 20px">
+                        <div class="col-3 col-xl-4 col-lg-5 col-md-12">
                             <aside class="profile__sidebar">
                                 <!-- User -->
                                 <div class="profile-user">
-                                    <img src="./assets/img/avatar/avatar-2.png" alt="" class="profile-user__avatar" />
+                                    <img src="./assets/img/avatar.jpg" alt="" class="profile-user__avatar" />
                                     <h1 class="profile-user__name">Imran Khan</h1>
                                     <p class="profile-user__desc">Registered: 17th May 2022</p>
                                 </div>
@@ -186,13 +186,13 @@
                                 </div>
                             </aside>
                         </div>
-                        <div class="col-9">
+                        <div class="col-9 col-xl-8 col-lg-7 col-md-12">
                             <div class="profile-info">
                                 <div class="profile-info__margin">
                                     <h2 class="profile-info__heading">My Wallet</h2>
                                     <p class="profile-info__desc">Payment methods</p>
 
-                                    <div class="row row-cols-3">
+                                    <div class="row row-cols-3 row-cols-xl-2 gy-xl-2 row-cols-lg-1">
                                         <div class="col">
                                             <article class="payment-card payment-card-1">
                                                 <img
@@ -260,14 +260,14 @@
                                             </article>
                                         </div>
                                         <div class="col">
-                                            <div class="new-card">
+                                            <a href="./add-new-card.html" class="new-card">
                                                 <img
                                                     src="./assets/icons/plus.svg"
                                                     alt=""
                                                     class="new-card__icon profile-icon__theme"
                                                 />
                                                 <p class="new-card__text">Add New Card</p>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -275,9 +275,12 @@
                                     <h2 class="profile-info__heading">Account info</h2>
                                     <p class="profile-info__desc">Addresses, contact information and password</p>
 
-                                    <div class="row row-cols-2" style="--grid-gutter-x: 20px; --grid-gutter-y: 20px">
+                                    <div
+                                        class="row row-cols-2 row-cols-lg-1"
+                                        style="--grid-gutter-x: 20px; --grid-gutter-y: 20px"
+                                    >
                                         <div class="col">
-                                            <article class="account-info">
+                                            <a href="./edit-personal-info.html" class="account-info">
                                                 <div class="account-info__icon">
                                                     <img
                                                         src="./assets/icons/message.svg"
@@ -289,10 +292,10 @@
                                                     <h3 class="account-info__title">Email Address</h3>
                                                     <p class="account-info__desc">tarek97.ta@gmail.com</p>
                                                 </div>
-                                            </article>
+                                            </a>
                                         </div>
                                         <div class="col">
-                                            <article class="account-info">
+                                            <a href="./edit-personal-info.html" class="account-info">
                                                 <div class="account-info__icon">
                                                     <img
                                                         src="./assets/icons/profile/calling.svg"
@@ -304,10 +307,10 @@
                                                     <h3 class="account-info__title">Phone number</h3>
                                                     <p class="account-info__desc">+000 11122 2345 657</p>
                                                 </div>
-                                            </article>
+                                            </a>
                                         </div>
                                         <div class="col">
-                                            <article class="account-info">
+                                            <a href="./edit-personal-info.html" class="account-info">
                                                 <div class="account-info__icon">
                                                     <img
                                                         src="./assets/icons/profile/location.svg"
@@ -321,7 +324,7 @@
                                                         Bangladesh Embassy, Washington, DC 20008
                                                     </p>
                                                 </div>
-                                            </article>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -379,21 +382,5 @@
         <script>
             load("#footer", "./templates/footer.html");
         </script>
-
-        <!-- Model: delete cart -->
-        <div id="delete-confirm" class="modal modal--small hide">
-            <div class="modal__content">
-                <div class="modal__text">Lorem ipsum dolor sit amet?</div>
-                <div class="modal__bottom">
-                    <button class="modal__btn btn--small btn btn--text js-toggle" toggle-target="#delete-confirm">
-                        Cancel
-                    </button>
-                    <button class="modal__btn btn btn--small btn--primary js-toggle" toggle-target="#delete-confirm">
-                        Confirm
-                    </button>
-                </div>
-            </div>
-            <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
-        </div>
     </body>
 </html>

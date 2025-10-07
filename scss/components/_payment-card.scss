@@ -76,13 +76,14 @@
     gap: 14px;
 
     height: 100%;
+    min-height: 170px;
     border-radius: 10px;
     border: 1px dashed var(--new-card-border);
     color: var(--new-card-text-color);
     cursor: pointer;
-    transition: background-color 0.25s;
+    transition: border-style 0.3s;
 
     &:hover {
-        background: #f2f1f1;
+        border-style: solid;
     }
 }

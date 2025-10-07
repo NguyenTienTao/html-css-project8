@@ -225,3 +225,26 @@ window.addEventListener("template-loaded", () => {
         });
     });
 });
+
+window.addEventListener("template-loaded", () => {
+    const switchBtn = document.querySelector("#switch-theme-btn");
+    if (switchBtn) {
+        switchBtn.onclick = function () {
+            const isDark = localStorage.dark === "true";
+            document.querySelector("html").classList.toggle("dark", !isDark);
+            localStorage.setItem("dark", !isDark);
+            switchBtn.querySelector("span").textContent = isDark ? "Dark mode" : "Light mode";
+            switchBtn
+                .querySelector("img")
+                .setAttribute("src", isDark ? "./assets/icons/dark-mode.svg" : "./assets/icons/light-mode.svg");
+        };
+        const isDark = localStorage.dark === "true";
+        switchBtn.querySelector("span").textContent = isDark ? "Light mode" : "Dark mode";
+        switchBtn
+            .querySelector("img")
+            .setAttribute("src", isDark ? "./assets/icons/light-mode.svg" : "./assets/icons/dark-mode.svg");
+    }
+});
+
+const isDark = localStorage.dark === "true";
+document.querySelector("html").classList.toggle("dark", isDark);

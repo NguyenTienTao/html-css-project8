@@ -1,9 +1,19 @@
+@use "../abstracts";
+
 .profile {
     margin-bottom: 50px;
+
+    @include abstracts.screen(md) {
+        margin-top: 20px;
+    }
 
     &-container {
         margin-top: 30px;
         color: var(--profile-text-color);
+
+        @include abstracts.screen(md) {
+            margin-top: 20px;
+        }
     }
 
     &__sidebar {
@@ -100,9 +110,17 @@
         background: var(--profile-content-bg);
         box-shadow: 0 20px 60px 10px var(--profile-content-shadow);
 
+        @include abstracts.screen(md) {
+            padding: 16px;
+        }
+
         &__margin {
             ~ .profile-info__margin {
                 margin-top: 30px;
+
+                @include abstracts.screen(md) {
+                    margin-top: 20px;
+                }
             }
         }
 
@@ -110,12 +128,32 @@
             font-size: 2.4rem;
             font-weight: 700;
             line-height: 141.667%;
+
+            @include abstracts.screen(sm) {
+                font-size: 1.8rem;
+                line-height: 144.444%;
+            }
+
+            &--lv2 {
+                font-size: 2.2rem;
+                line-height: 145.455%;
+
+                @include abstracts.screen(sm) {
+                    font-size: 1.5rem;
+                    line-height: 146.667%;
+                }
+            }
         }
 
         &__desc {
             margin: 4px 0 16px;
             font-size: 1.5rem;
             line-height: 146.667%;
+
+            @include abstracts.screen(sm) {
+                font-size: 1.5rem;
+                line-height: 142.857%;
+            }
         }
 
         &__separate {
@@ -123,6 +161,99 @@
             height: 1px;
             width: 100%;
             background: var(--profile-info-separate);
+
+            @include abstracts.screen(md) {
+                margin: 16px 0;
+            }
+        }
+
+        &__top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    &-form {
+        &__list-input {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+
+            @include abstracts.screen(lg) {
+                grid-template-columns: 1fr;
+            }
+
+            @include abstracts.screen(sm) {
+                margin: 16px 0;
+                gap: 16px;
+            }
+        }
+
+        &__wrap-input {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @include abstracts.screen(sm) {
+                gap: 12px;
+            }
+        }
+
+        &__label {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 144.444%;
+
+            @include abstracts.screen(sm) {
+                font-size: 1.5rem;
+                line-height: 146.667%;
+            }
+        }
+
+        &__input {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--input-no-label-border);
+            font-size: 1.6rem;
+            font-weight: 500;
+            transition: border-color 0.3s;
+
+            &::placeholder {
+                font-size: 1.8rem;
+                font-weight: 500;
+                line-height: 144.444%;
+                color: var(--input-no-label-placeholder);
+
+                @include abstracts.screen(sm) {
+                    font-size: 1.5rem;
+                    line-height: 146.667%;
+                }
+            }
+
+            &:focus {
+                border-color: var(--profile-text-color);
+            }
+        }
+
+        &__desc {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 144.444%;
+        }
+
+        &__btn {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+
+            @include abstracts.screen(sm) {
+                margin-top: 16px;
+            }
         }
     }
 
@@ -140,25 +271,45 @@
         width: 151px;
         height: 108px;
         object-fit: contain;
+
+        @include abstracts.screen(sm) {
+            width: 111px;
+            height: 79px;
+        }
     }
 
     &__title {
         font-size: 1.5rem;
         font-weight: 500;
         line-height: 146.667%;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 142.857%;
+        }
     }
 
     &__row {
         margin-top: 10px;
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px 20px;
+
+        @include abstracts.screen(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
     &__price {
         font-size: 2.2rem;
         font-weight: 500;
         line-height: 145.455%;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.8rem;
+            line-height: 144.444%;
+        }
     }
 
     &__btn {

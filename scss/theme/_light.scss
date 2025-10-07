@@ -13,6 +13,10 @@ html {
     --top-act-separate-color: #ededf6;
     --top-act-user-shadow: rgba(0, 0, 0, 0.08);
 
+    @include abstracts.screen(md) {
+        --bg-color: #fafafa;
+    }
+
     /* Dropdown */
     --dropdown-bg-color: #fff;
     --dropdown-shadow: rgba(200, 200, 200, 0.4);
@@ -168,4 +172,7 @@ html {
     @include abstracts.screen(md) {
         --account-info-bg: #f8f8fb;
     }
+
+    // User menu
+    --user-menu-separate: #d2d1d6;
 }

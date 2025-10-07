@@ -238,11 +238,17 @@
     }
 
     &__user {
+        position: relative;
         width: 50px;
         height: 50px;
         border-radius: 8px;
         box-shadow: 0 4px 14px 2px var(--top-act-user-shadow);
         cursor: pointer;
+
+        &:hover .act-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__avatar {
@@ -261,6 +267,15 @@
             height: 40px;
             font-size: 1.4rem;
             padding: 0 10px;
+        }
+    }
+
+    &__dropdown {
+        right: 0 !important;
+        width: 280px;
+
+        @include abstracts.screen(md) {
+            width: 250px;
         }
     }
 }
@@ -285,5 +300,52 @@
 
     &__qnt {
         margin-left: auto;
+    }
+}
+
+.user-menu {
+    &::before {
+        right: 8px;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    &__name {
+        margin-bottom: 8px;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    &__list {
+        margin-top: 30px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__separate {
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid var(--user-menu-separate);
     }
 }
